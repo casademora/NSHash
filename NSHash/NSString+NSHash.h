@@ -25,3 +25,5 @@
 - (NSString*) SHA256;
 
 @end
+
+NSString * nshash_bytes_to_hex_string(unsigned char *data, unsigned int length);

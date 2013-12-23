@@ -49,12 +49,17 @@
 }
 
 - (NSString*) toHexString:(unsigned char*) data length: (unsigned int) length {
-	NSMutableString* hash = [NSMutableString stringWithCapacity:length * 2];
+    return nshash_bytes_to_hex_string(data, length);
+}
+
+@end
+
+NSString * nshash_bytes_to_hex_string(unsigned char *data, unsigned int length)
+{
+ 	NSMutableString* hash = [NSMutableString stringWithCapacity:length * 2];
 	for (unsigned int i = 0; i < length; i++) {
 		[hash appendFormat:@"%02x", data[i]];
 		data[i] = 0;
 	}
 	return hash;
 }
-
-@end
