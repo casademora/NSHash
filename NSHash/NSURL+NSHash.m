@@ -33,7 +33,7 @@ static NSUInteger NSURLHashFileBufferSize = 4096;
         @autoreleasepool {
 
             NSData *bufferedData = [handle readDataOfLength:NSURLHashFileBufferSize];
-            CC_MD5_Update (&md5, [bufferedData bytes], [bufferedData length]);
+            CC_MD5_Update(&md5, [bufferedData bytes], [@([bufferedData length]) unsignedIntValue]);
             
             endOfFileReached = ([bufferedData length] == 0);
         }
